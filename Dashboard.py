@@ -111,6 +111,32 @@ if types == "Pedestrians":
     # Display the top cities in the output
     st.write(top_cities)
 
+# If the selected type is Cyclists
+elif types == "Cyclists":
+    # Filter the data to include only rows where injured_cyclists is greater than or equal to 1
+    filtered_data = data_copy.query("injured_cyclists >= 1")
+
+    # Sort the filtered data by injured_cyclists in descending order and select the top 5 cities
+    top_cities = filtered_data[["city", "injured_cyclists"]].sort_values(
+        by=["injured_cyclists"],
+        ascending=False).dropna(how="any")[:5]["city"]
+
+    # Display the top cities in the output
+    st.write(top_cities)
+
+# If the selected type is Motorists
+else:
+    # Filter the data to include only rows where injured_motorists is greater than or equal to 1
+    filtered_data = data_copy.query("injured_motorists >= 1")
+
+    # Sort the filtered data by injured_motorists in descending order and select the top 5 cities
+    top_cities = filtered_data[["city", "injured_motorists"]].sort_values(
+        by=["injured_motorists"],
+        ascending=False).dropna(how="any")[:5]["city"]
+
+    # Display the top cities in the output
+    st.write(top_cities)
+
 # Create a checkbox input to show raw data
 if st.checkbox("Show Raw Data", False):
     st.subheader('Raw Data')
