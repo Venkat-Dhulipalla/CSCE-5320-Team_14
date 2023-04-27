@@ -119,7 +119,7 @@ elif types == "Cyclists":
     # Sort the filtered data by injured_cyclists in descending order and select the top 5 cities
     top_cities = filtered_data[["city", "injured_cyclists"]].sort_values(
         by=["injured_cyclists"],
-        ascending=False).dropna(how="any")[:5]["city"]
+        ascending=False).dropna(how="any")[:10]["city"]
 
     # Display the top cities in the output
     st.write(top_cities)
@@ -132,7 +132,7 @@ else:
     # Sort the filtered data by injured_motorists in descending order and select the top 5 cities
     top_cities = filtered_data[["city", "injured_motorists"]].sort_values(
         by=["injured_motorists"],
-        ascending=False).dropna(how="any")[:5]["city"]
+        ascending=False).dropna(how="any")[:10]["city"]
 
     # Display the top cities in the output
     st.write(top_cities)
