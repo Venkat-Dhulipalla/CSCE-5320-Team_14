@@ -67,12 +67,14 @@ st.write(pdk.Deck(
     ),
     layers=[
         pdk.Layer(
-            'ScatterplotLayer',
+            'HexagonLayer',
             data=data[['latitude', 'longitude']],
             get_position=['longitude', 'latitude'],
-            get_color='[255, 0, 0, 200]',
-            get_radius=100,
+            radius=120,
+            elevation_scale=4,
+            elevation_range=[0, 1000],
             pickable=True,
+            extruded=True,
         )
     ],
 ))
